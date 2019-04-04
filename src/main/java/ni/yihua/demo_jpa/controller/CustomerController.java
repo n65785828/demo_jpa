@@ -18,8 +18,8 @@ public class CustomerController {
     /**
      * 初始化数据
      */
-    @RequestMapping("/index")
-    public String index(Model model) {
+    @RequestMapping("/create")
+    public String create(Model model) {
         // save a couple of customers
         model.addAttribute("hello","hello ni ma!!");
         repository.save(new Customer("Jack", "Bauer"));
@@ -41,7 +41,7 @@ public class CustomerController {
             System.out.println(customer.toString());
         }
         System.out.println("-------------------------------------------");
-        return "index";
+        return "/customer/showCustomer";
     }
 
     /**

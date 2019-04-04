@@ -5,9 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>hello welcome to index</h1>
-    <h4><a th:href="@{/customer/findAll}">查看所有</a></h4>
-    <h4><a th:href="@{/customer/delete}">删除某个用户</a></h4>
-    <h4><a th:href="@{/customer/create}">创建用户</a></h4>
+<h1>hello welcome to index</h1>
+<h4><a th:href="@{/customer/findAll}">查看所有</a></h4>
+<h4><a th:href="@{/customer/delete}">删除某个用户</a></h4>
+<h4><a th:href="@{/customer/create}">创建用户</a></h4>
+<div id="search_div">
+    <form action="/customer/findByLastName" method="post">
+        <p><label>lastName:</label> <input th:type="text" name="lastName"></p>
+        <p><input type="submit"></p>
+    </form>
+</div>
 </body>
 </html>

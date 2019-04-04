@@ -2,5 +2,15 @@ package ni.yihua.demo_jpa.Respository;
 
 import ni.yihua.demo_jpa.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
+
+    /**
+     * 根据lastName查询结果
+     * @param lastName
+     * @return
+     */
+    List<Customer> findByLastName(String lastName);
 }

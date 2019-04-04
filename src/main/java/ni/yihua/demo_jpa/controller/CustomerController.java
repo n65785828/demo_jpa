@@ -66,4 +66,15 @@ public class CustomerController {
         System.out.println("-------------------------------------------");
         return "index";
     }
+
+    @RequestMapping("/findByLastName")
+    public String findByLastName(Model model,String lastName){
+        List<Customer> result = repository.findByLastName(lastName);
+        for (Customer customer :
+                result) {
+            System.out.println(customer);
+        }
+        model.addAttribute("result",result);
+        return "index";
+    }
 }

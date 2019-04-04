@@ -3,15 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        div{
+            border: aquamarine 1px solid;
+        }
+    </style>
 </head>
 <body>
 <h1>hello welcome to index</h1>
 <h4><a th:href="@{/customer/findAll}">查看所有</a></h4>
 <h4><a th:href="@{/customer/delete}">删除某个用户</a></h4>
 <h4><a th:href="@{/customer/create}">创建用户</a></h4>
-<div id="search_div">
+<div id="search_div1">
     <form action="/customer/findByLastName" method="post">
         <p><label>lastName:</label> <input th:type="text" name="lastName"></p>
+        <p><input type="submit"></p>
+    </form>
+</div>
+
+<div id="search_div2">
+    <form action="/customer/findByFirstName" method="post">
+        <p><label>lastName:</label> <input th:type="text" name="firstName"></p>
         <p><input type="submit"></p>
     </form>
 </div>

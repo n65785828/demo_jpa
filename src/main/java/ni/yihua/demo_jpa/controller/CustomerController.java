@@ -69,7 +69,18 @@ public class CustomerController {
 
     @RequestMapping("/findByLastName")
     public String findByLastName(Model model,String lastName){
-        List<Customer> result = repository.findByLastName(lastName);
+        List<Customer> result = repository.findByLastName1(lastName);
+        for (Customer customer :
+                result) {
+            System.out.println(customer);
+        }
+        model.addAttribute("result",result);
+        return "index";
+    }
+
+    @RequestMapping("/findByFirstName")
+    public String findByFirstName(Model model,String firstName){
+        List<Customer> result = repository.findByFirstName1(firstName);
         for (Customer customer :
                 result) {
             System.out.println(customer);

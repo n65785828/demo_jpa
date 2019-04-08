@@ -3,6 +3,7 @@ package ni.yihua.demo_jpa.controller;
 import ni.yihua.demo_jpa.Respository.UserRepository;
 import ni.yihua.demo_jpa.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -34,6 +35,27 @@ public class UserController {
         }
         return "/user/user";
     }
+
+    @RequestMapping("list")
+    public String listUsersByUserName() {
+        Sort sort = new Sort(Sort.Direction.ASC,"id");
+        List<User> users = repository.listUsersByNameAndSort("jack",sort);
+        for (User user :
+                users) {
+            System.out.println(user);
+        }
+
+
+        sort = new Sort(Sort.Direction.DESC,"id");
+        users = repository.listUsersByNameAndSort("jack",sort);
+        for (User user :
+                users) {
+            System.out.println(user);
+        }
+
+        return "/user/user";
+    }
+
 
 
 }

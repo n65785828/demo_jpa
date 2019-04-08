@@ -1,6 +1,7 @@
 package ni.yihua.demo_jpa.Respository;
 
 import ni.yihua.demo_jpa.entity.User;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -10,4 +11,9 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
     @Query("select c from User c where c.name=?1")
     List<User> listUsersByName(String name);
+
+    @Query("select c from User c where c.name=?1")
+    List<User> listUsersByNameAndSort(String name, Sort sort);
+
+
 }
